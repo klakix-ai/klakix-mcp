@@ -1,0 +1,62 @@
+{
+  "name": "klakix-mcp",
+  "version": "0.1.0",
+  "description": "Klakix MCP server for Claude Desktop and any stdio MCP client: generate AI videos, images, voiceovers and music with Veo, Kling, Seedance and Nano Banana.",
+  "license": "MIT",
+  "type": "module",
+  "author": "Klakix <support@klakix.com> (https://klakix.com)",
+  "homepage": "https://github.com/klakix-ai/klakix-mcp/tree/main/packages/cli#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klakix-ai/klakix-mcp.git",
+    "directory": "packages/cli"
+  },
+  "bugs": "https://github.com/klakix-ai/klakix-mcp/issues",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "./dist/bridge.js",
+  "types": "./dist/bridge.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/bridge.d.ts",
+      "import": "./dist/bridge.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "klakix-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {},
+  "mcpName": "com.klakix/mcp",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "claude",
+    "claude-desktop",
+    "ai-video-generator",
+    "text-to-video",
+    "image-to-video",
+    "ai-image-generator",
+    "text-to-speech",
+    "veo",
+    "kling",
+    "seedance",
+    "nano-banana",
+    "klakix"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": false
+  }
+}

@@ -3,6 +3,8 @@
 [![MCP](https://img.shields.io/badge/MCP-Streamable%20HTTP-black)](https://modelcontextprotocol.io)
 [![Auth](https://img.shields.io/badge/auth-OAuth%202.1%20%2B%20PKCE-blue)](#authentication)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![CI](https://github.com/klakix-ai/klakix-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/klakix-ai/klakix-mcp/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/klakix-mcp?label=klakix-mcp)](https://www.npmjs.com/package/klakix-mcp)
 
 The **Klakix MCP server** lets an AI assistant make videos, images, voiceovers, music and sound effects for you. Add one URL to Claude, ChatGPT, Claude Code, Cursor, VS Code, Devin Desktop (Windsurf), Codex or Gemini CLI, sign in with your [Klakix](https://klakix.com) account, and ask in plain language: "make a 5-second product video from this photo", "generate three thumbnail images", "read this script in a calm voice".
 
@@ -18,15 +20,29 @@ https://klakix.com/api/mcp
 
 Product page: [klakix.com/mcp](https://klakix.com/mcp)
 
+## What's in this repository
+
+This is the open-source home of the Klakix MCP server. Besides the setup guide for the hosted server, it contains the building blocks we run in production, extracted as standalone MIT-licensed packages you can use for your own MCP server.
+
+| Package | What it is |
+|---|---|
+| [`klakix-mcp`](packages/cli) | Stdio bridge for Claude Desktop and any stdio MCP client: `npx -y klakix-mcp`. Zero dependencies. |
+| [`@klakix/mcp-server`](packages/mcp-server) | Stateless Streamable HTTP MCP server for the Web Fetch API: tools with zod schemas, prompts, resources, scope checks, rate-limit and logging hooks, and an SSRF-safe media fetcher. Runs on Node, Next.js, Hono, Bun, Deno and Cloudflare Workers. |
+| [`@klakix/mcp-oauth`](packages/mcp-oauth) | OAuth 2.1 authorization server for remote MCP servers: PKCE S256, dynamic client registration (RFC 7591), client ID metadata documents, RFC 8414 and RFC 9728 metadata, refresh token rotation with reuse detection, revocation. Storage-agnostic, zero dependencies. |
+| [`examples/self-hosted`](examples/self-hosted) | A complete MCP server with OAuth sign-in and demo image and video tools that you can run locally in one command and connect to Claude Code or MCP Inspector. |
+
+
 ## Contents
 
 - [Quick start](#quick-start)
+- [What's in this repository](#whats-in-this-repository)
 - [Setup by client](#setup-by-client)
 - [Tools](#tools)
 - [Workflows (prompts)](#workflows-prompts)
 - [Authentication](#authentication)
 - [Pricing and limits](#pricing-and-limits)
 - [Safety](#safety)
+- [Build your own MCP server](#build-your-own-mcp-server)
 - [FAQ](#faq)
 
 ## Quick start
@@ -51,6 +67,22 @@ Ready-to-copy files are in [`configs/`](configs).
 5. In a new chat, click **+**, open **Connectors**, turn Klakix on and ask for a video.
 
 The Free plan allows one custom connector. On Team and Enterprise an Owner adds it. Once added, it works on every device.
+
+### Claude Desktop with a config file (stdio)
+
+If you prefer a config file to the Connectors screen, or your client only runs local stdio servers, use the [`klakix-mcp`](packages/cli) bridge with an API key from [klakix.com/app/mcp](https://klakix.com/app/mcp). In `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "klakix": {
+      "command": "npx",
+      "args": ["-y", "klakix-mcp"],
+      "env": { "KLAKIX_API_KEY": "avy_sk_..." }
+    }
+  }
+}
+```
 
 ### ChatGPT
 
@@ -231,6 +263,43 @@ A request without a token gets `401` with a `WWW-Authenticate` header that point
 
 Every prompt and uploaded image goes through the same checks as the website. Celebrities, public figures, people without their consent and copyrighted characters are blocked; tools that use a photo of a person ask for a consent confirmation. There is no face swap and no voice cloning. Uploads are not used to train models.
 
+## Build your own MCP server
+
+The packages in this repository are the same code paths that serve `https://klakix.com/api/mcp`, without anything specific to our product (models, prices, moderation and storage live behind your own backend).
+
+```bash
+git clone https://github.com/klakix-ai/klakix-mcp.git
+cd klakix-mcp
+npm install
+npm run build
+npm start -w examples/self-hosted
+```
+
+Then connect a client to `http://localhost:8787/mcp`, for example `claude mcp add --transport http demo http://localhost:8787/mcp`, and sign in on the demo consent screen. A minimal server with one tool:
+
+```ts
+import { createMcpHandler, defineTool, toolOk } from "@klakix/mcp-server";
+import { z } from "zod";
+
+const echo = defineTool({
+  name: "echo",
+  title: "Echo",
+  description: "Returns the text you send.",
+  inputSchema: z.object({ text: z.string() }),
+  handler: async ({ text }) => toolOk(text, { text }),
+});
+
+export const mcp = createMcpHandler({
+  serverInfo: { name: "my-server", version: "1.0.0" },
+  tools: [echo],
+  authenticate: async (request) => (request.headers.get("authorization") === `Bearer ${process.env.API_KEY}` ? { id: "me" } : null),
+});
+
+// Any Fetch API runtime: export default { fetch: mcp.handle }
+```
+
+Read the package READMEs for OAuth wiring in Next.js, Node `http`, Hono and Cloudflare Workers.
+
 ## FAQ
 
 **Can Claude generate images or videos?**
@@ -244,6 +313,9 @@ No for Claude, ChatGPT, Claude Code, Cursor, VS Code, Windsurf, Codex and Gemini
 
 **How is this different from the Higgsfield MCP?**
 Both are remote MCP servers that sign in with OAuth and spend account credits. Klakix adds talking videos (HeyGen Avatar IV, OmniHuman), voiceovers, music and sound effects, Motif explainer videos and ready-made templates, and needs no subscription. Model-by-model comparison with prices: [klakix.com/higgsfield-alternative](https://klakix.com/higgsfield-alternative).
+
+**Is the Klakix MCP server open source?**
+Yes. The protocol layer, the OAuth 2.1 authorization server, the stdio bridge and the client configs are MIT-licensed in this repository. The generation backend (model routing, pricing, moderation, storage) is part of the hosted Klakix service.
 
 **Which model should I use?**
 Ask the assistant to call `list_models` and `estimate_cost`, or see the [model comparison](https://klakix.com/models).

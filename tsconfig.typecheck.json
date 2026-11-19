@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "composite": false,
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "types": ["node"],
+    "paths": {
+      "@klakix/mcp-oauth": ["./packages/mcp-oauth/src/index.ts"],
+      "@klakix/mcp-server": ["./packages/mcp-server/src/index.ts"]
+    }
+  },
+  "include": ["packages/*/src", "packages/*/test", "examples/*/src", "examples/*/test", "vitest.config.ts"]
+}

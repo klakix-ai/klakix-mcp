@@ -1,0 +1,12 @@
+{
+  "name": "klakix-mcp-example-self-hosted",
+  "private": true,
+  "type": "module",
+  "description": "A complete remote MCP server with OAuth 2.1 sign-in and demo generation tools, built on @klakix/mcp-server and @klakix/mcp-oauth.",
+  "engines": { "node": ">=22.18" },
+  "scripts": {
+    "build": "tsc -b",
+    "start": "node --experimental-strip-types src/index.ts"
+  },
+  "dependencies": { "@klakix/mcp-oauth": "0.1.0", "@klakix/mcp-server": "0.1.0", "zod": "^4.1.12" }
+}

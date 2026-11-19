@@ -1,0 +1,19 @@
+{
+  "name": "@klakix/mcp-server",
+  "version": "0.1.0",
+  "description": "Stateless Streamable HTTP MCP server for the Web Fetch API: tools with zod schemas, prompts, resources, auth hooks and an SSRF-safe media fetcher.",
+  "license": "MIT",
+  "type": "module",
+  "author": "Klakix <support@klakix.com> (https://klakix.com)",
+  "homepage": "https://github.com/klakix-ai/klakix-mcp/tree/main/packages/mcp-server#readme",
+  "repository": { "type": "git", "url": "git+https://github.com/klakix-ai/klakix-mcp.git", "directory": "packages/mcp-server" },
+  "bugs": "https://github.com/klakix-ai/klakix-mcp/issues",
+  "engines": { "node": ">=20" },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "files": ["dist", "README.md", "LICENSE"],
+  "sideEffects": false,
+  "scripts": { "build": "tsc -b" },
+  "dependencies": {"zod": "^4.1.12"}
+}
