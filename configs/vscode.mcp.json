@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "klakix": {
+      "type": "http",
+      "url": "https://klakix.com/api/mcp"
+    }
+  }
+}
