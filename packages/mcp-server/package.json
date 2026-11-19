@@ -6,14 +6,49 @@
   "type": "module",
   "author": "Klakix <support@klakix.com> (https://klakix.com)",
   "homepage": "https://github.com/klakix-ai/klakix-mcp/tree/main/packages/mcp-server#readme",
-  "repository": { "type": "git", "url": "git+https://github.com/klakix-ai/klakix-mcp.git", "directory": "packages/mcp-server" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klakix-ai/klakix-mcp.git",
+    "directory": "packages/mcp-server"
+  },
   "bugs": "https://github.com/klakix-ai/klakix-mcp/issues",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
-  "files": ["dist", "README.md", "LICENSE"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "sideEffects": false,
-  "scripts": { "build": "tsc -b" },
-  "dependencies": {"zod": "^4.1.12"}
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "zod": "^4.1.12"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "streamable-http",
+    "fetch-api",
+    "zod",
+    "cloudflare-workers",
+    "nextjs",
+    "hono",
+    "ssrf"
+  ]
 }

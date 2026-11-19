@@ -6,14 +6,48 @@
   "type": "module",
   "author": "Klakix <support@klakix.com> (https://klakix.com)",
   "homepage": "https://github.com/klakix-ai/klakix-mcp/tree/main/packages/mcp-oauth#readme",
-  "repository": { "type": "git", "url": "git+https://github.com/klakix-ai/klakix-mcp.git", "directory": "packages/mcp-oauth" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klakix-ai/klakix-mcp.git",
+    "directory": "packages/mcp-oauth"
+  },
   "bugs": "https://github.com/klakix-ai/klakix-mcp/issues",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
-  "files": ["dist", "README.md", "LICENSE"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "sideEffects": false,
-  "scripts": { "build": "tsc -b" },
-  "dependencies": {}
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "oauth",
+    "oauth2",
+    "oauth2.1",
+    "pkce",
+    "dynamic-client-registration",
+    "rfc7591",
+    "rfc9728",
+    "authorization-server",
+    "mcp-auth"
+  ]
 }
