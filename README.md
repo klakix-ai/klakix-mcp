@@ -5,8 +5,14 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![CI](https://github.com/klakix-ai/klakix-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/klakix-ai/klakix-mcp/actions/workflows/ci.yml)
 [![npm](https://img.shields.io/npm/v/klakix-mcp?label=klakix-mcp)](https://www.npmjs.com/package/klakix-mcp)
+[![npm downloads](https://img.shields.io/npm/dm/klakix-mcp)](https://www.npmjs.com/package/klakix-mcp)
+[![klakix-mcp MCP server](https://glama.ai/mcp/servers/klakix-ai/klakix-mcp/badges/score.svg)](https://glama.ai/mcp/servers/klakix-ai/klakix-mcp)
 
-The **Klakix MCP server** lets an AI assistant make videos, images, voiceovers, music and sound effects for you. Add one URL to Claude, ChatGPT, Claude Code, Cursor, VS Code, Devin Desktop (Windsurf), Codex or Gemini CLI, sign in with your [Klakix](https://klakix.com) account, and ask in plain language: "make a 5-second product video from this photo", "generate three thumbnail images", "read this script in a calm voice".
+**What is it?** The Klakix MCP server lets an AI assistant make videos, images, voiceovers, music and sound effects for you: Seedance, Kling, Veo, Wan, Nano Banana and more behind one connector.
+
+**Who is it for?** Anyone who uses Claude, ChatGPT or a coding assistant and wants generated media without leaving the chat: marketers, creators, designers and developers who prototype with AI video. No subscription; you pay credits only for what you generate.
+
+**How do I install it?** Add one URL to Claude, ChatGPT, Claude Code, Cursor, VS Code, Cline, Devin Desktop (Windsurf), Codex or Gemini CLI, sign in with your [Klakix](https://klakix.com) account, and ask in plain language: "make a 5-second product video from this photo", "generate three thumbnail images", "read this script in a calm voice". Per-client steps are in [Setup by client](#setup-by-client).
 
 ```
 https://klakix.com/api/mcp
@@ -137,6 +143,24 @@ Use the **Add to Cursor** button on [klakix.com/mcp](https://klakix.com/mcp), or
 ```
 
 Sign in when the server starts, then open Copilot Chat in agent mode.
+
+### Cline
+
+In Cline, open **MCP Servers > Remote Servers** (or edit `cline_mcp_settings.json`) and add:
+
+```json
+{
+  "mcpServers": {
+    "klakix": {
+      "type": "streamableHttp",
+      "url": "https://klakix.com/api/mcp",
+      "headers": { "Authorization": "Bearer avy_sk_..." }
+    }
+  }
+}
+```
+
+Create the API key on [klakix.com/app/mcp](https://klakix.com/app/mcp). Cline-specific install notes for agents are in [`llms-install.md`](llms-install.md).
 
 ### Devin Desktop (Windsurf)
 

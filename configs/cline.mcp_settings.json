@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "klakix": {
+      "type": "streamableHttp",
+      "url": "https://klakix.com/api/mcp",
+      "headers": {
+        "Authorization": "Bearer avy_sk_..."
+      }
+    }
+  }
+}

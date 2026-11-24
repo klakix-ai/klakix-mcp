@@ -5,6 +5,7 @@
 | `claude-code.sh` | Claude Code | run in a terminal |
 | `cursor.mcp.json` | Cursor | `~/.cursor/mcp.json` |
 | `vscode.mcp.json` | VS Code (Copilot agent mode) | `.vscode/mcp.json` |
+| `cline.mcp_settings.json` | Cline | `cline_mcp_settings.json` (replace the key) |
 | `devin-windsurf.mcp_config.json` | Devin Desktop (Windsurf) | `~/.config/devin/mcp_config.json` |
 | `codex.sh` | OpenAI Codex | run in a terminal |
 | `gemini-cli.sh` | Gemini CLI | run in a terminal |
