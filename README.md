@@ -7,6 +7,7 @@
 [![npm](https://img.shields.io/npm/v/klakix-mcp?label=klakix-mcp)](https://www.npmjs.com/package/klakix-mcp)
 [![npm downloads](https://img.shields.io/npm/dm/klakix-mcp)](https://www.npmjs.com/package/klakix-mcp)
 [![klakix-mcp MCP server](https://glama.ai/mcp/servers/klakix-ai/klakix-mcp/badges/score.svg)](https://glama.ai/mcp/servers/klakix-ai/klakix-mcp)
+[![Klakix MCP connector](https://glama.ai/mcp/connectors/com.klakix/mcp/badges/score.svg)](https://glama.ai/mcp/connectors/com.klakix/mcp)
 
 **What is it?** The Klakix MCP server lets an AI assistant make videos, images, voiceovers, music and sound effects for you: Seedance, Kling, Veo, Wan, Nano Banana and more behind one connector.
 
