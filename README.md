@@ -34,6 +34,7 @@ This is the open-source home of the Klakix MCP server. Besides the setup guide f
 | Package | What it is |
 |---|---|
 | [`klakix-mcp`](packages/cli) | Stdio bridge for Claude Desktop and any stdio MCP client: `npx -y klakix-mcp`. Zero dependencies. |
+| [`klakix-mcp`](packages/python) (PyPI) | Same stdio bridge in pure Python: `uvx klakix-mcp`. Zero dependencies. |
 | [`@klakix/mcp-server`](packages/mcp-server) | Stateless Streamable HTTP MCP server for the Web Fetch API: tools with zod schemas, prompts, resources, scope checks, rate-limit and logging hooks, and an SSRF-safe media fetcher. Runs on Node, Next.js, Hono, Bun, Deno and Cloudflare Workers. |
 | [`@klakix/mcp-oauth`](packages/mcp-oauth) | OAuth 2.1 authorization server for remote MCP servers: PKCE S256, dynamic client registration (RFC 7591), client ID metadata documents, RFC 8414 and RFC 9728 metadata, refresh token rotation with reuse detection, revocation. Storage-agnostic, zero dependencies. |
 | [`examples/self-hosted`](examples/self-hosted) | A complete MCP server with OAuth sign-in and demo image and video tools that you can run locally in one command and connect to Claude Code or MCP Inspector. |

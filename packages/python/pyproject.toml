@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "klakix-mcp"
+version = "0.1.0"
+description = "Klakix MCP bridge for stdio MCP clients: generate AI videos, images, voiceovers and music with Veo, Kling, Seedance and Nano Banana."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+authors = [{ name = "Klakix", email = "support@klakix.com" }]
+keywords = ["mcp", "model-context-protocol", "ai-video", "klakix"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Multimedia :: Video",
+  "Topic :: Software Development :: Libraries",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://klakix.com/mcp"
+Repository = "https://github.com/klakix-ai/klakix-mcp"
+Issues = "https://github.com/klakix-ai/klakix-mcp/issues"
+
+[project.scripts]
+klakix-mcp = "klakix_mcp.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/klakix_mcp"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "README.md", "LICENSE", "pyproject.toml"]

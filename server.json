@@ -3,7 +3,7 @@
   "name": "com.klakix/mcp",
   "title": "Klakix",
   "description": "AI video, image, voiceover and music generation: Veo, Kling, Seedance, Nano Banana, GPT Image.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "websiteUrl": "https://klakix.com/mcp",
   "repository": {
     "url": "https://github.com/klakix-ai/klakix-mcp",
@@ -21,6 +21,20 @@
   "packages": [
     {
       "registryType": "npm",
+      "identifier": "klakix-mcp",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        {
+          "name": "KLAKIX_API_KEY",
+          "description": "API key from https://klakix.com/app/mcp",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    },
+    {
+      "registryType": "pypi",
       "identifier": "klakix-mcp",
       "version": "0.1.0",
       "transport": { "type": "stdio" },
