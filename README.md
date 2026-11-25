@@ -352,6 +352,8 @@ Ask the assistant to call `list_models` and `estimate_cost`, or see the [model c
 - MCP page: [klakix.com/mcp](https://klakix.com/mcp)
 - Models: [klakix.com/models](https://klakix.com/models)
 - Agent Skills for AI video (camera angles, character consistency, Seedance prompts, lip sync): [klakix-ai/ai-video-skills](https://github.com/klakix-ai/ai-video-skills)
+- Check generated clips before you use them (camera speed, flicker, frozen frames, cuts, audio): [klakix-ai/clipcheck](https://github.com/klakix-ai/clipcheck)
+- AI video model prices per second, open dataset: [klakix-ai/ai-video-pricing](https://github.com/klakix-ai/ai-video-pricing)
 - Support: support@klakix.com
 - Turkish version of the product: [aivideoyap.com](https://aivideoyap.com) (server `https://aivideoyap.com/api/mcp`, same account)
 
