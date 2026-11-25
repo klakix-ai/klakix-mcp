@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Klakix MCP server"
+abstract: "Open-source MCP server and OAuth 2.1 packages for AI video, image, voiceover and music generation from Claude, ChatGPT and Cursor."
+type: software
+authors:
+  - name: "Klakix"
+    website: "https://klakix.com"
+repository-code: "https://github.com/klakix-ai/klakix-mcp"
+url: "https://klakix.com/mcp"
+license: MIT
+version: 0.1.0
+date-released: 2026-11-19
+keywords:
+  - mcp
+  - model-context-protocol
+  - video-generation
+  - ai-video
