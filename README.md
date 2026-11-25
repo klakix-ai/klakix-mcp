@@ -350,6 +350,7 @@ Ask the assistant to call `list_models` and `estimate_cost`, or see the [model c
 - Website: [klakix.com](https://klakix.com)
 - MCP page: [klakix.com/mcp](https://klakix.com/mcp)
 - Models: [klakix.com/models](https://klakix.com/models)
+- Agent Skills for AI video (camera angles, character consistency, Seedance prompts, lip sync): [klakix-ai/ai-video-skills](https://github.com/klakix-ai/ai-video-skills)
 - Support: support@klakix.com
 - Turkish version of the product: [aivideoyap.com](https://aivideoyap.com) (server `https://aivideoyap.com/api/mcp`, same account)
 
