@@ -1,0 +1,10 @@
+{
+  "name": "klakix",
+  "version": "0.1.0",
+  "description": "Klakix MCP for Gemini CLI: generate AI video, images, voiceovers and music (Veo, Kling, Seedance, Nano Banana, GPT Image) from the terminal. Connects to the remote server at klakix.com and signs in with OAuth.",
+  "mcpServers": {
+    "klakix": {
+      "httpUrl": "https://klakix.com/api/mcp"
+    }
+  }
+}
